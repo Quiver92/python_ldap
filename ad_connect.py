@@ -4,11 +4,11 @@ import ldap
 connect = ldap.initialize('ldap://10.0.0.240')
 connect.protocol_version = 3
 connect.set_option(ldap.OPT_REFERRALS, 0)
-connect.simple_bind_s('w.lytovka@koksztys.local', 'Tazafe54')
+connect.simple_bind_s('user@domain.local', 'pass')
 
 
-result = connect.search_s('dc=koksztys,dc=local',
+result = connect.search_s('dc=domain,dc=local',
                           ldap.SCOPE_SUBTREE,
-                          'userPrincipalName=w.lytovka@koksztys.local',
+                          'userPrincipalName=user@domain.local',
                           ['memberOf'])
 print(result)
